@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,13 +21,13 @@
 <body>
 
 <section class="vh-100" style="background-color: #eee;">
-  <div class="container h-100">
+  <div class="container-fluid ">
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
+      <div class="col-lg-12 col-xl-11 ">
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body">
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
@@ -37,8 +38,20 @@
                     <div class="form-outline flex-fill mb-0">
                       <input type="text" id="id" name="id" class="form-control" placeholder="아이디"/>
                            <label class="form-label" id="idLabel" for="id"></label>
-                      <input type="email" id="email" name="email" class="form-control" placeholder="이메일"/>
-                           <label class="form-label" id="emailLabel" for="email"></label>
+					<div class="hstack gap-3" id="emailDiv">
+                      <input type="email" id="email" name="email" class="col form-control" placeholder="이메일"/>
+<!--                       <button type="button" class="col-2 btn btn-secondary text-nowrap">인증</button> -->
+					</div>
+                    
+
+<div id="verification_div" class="hstack gap-3">
+  <input class="col form-control" id="verification_val" type="text" placeholder="인증번호">
+  <button type="button" id="verification_submit" onclick="javascript:verificationSubmit()" class="col-2 btn btn-secondary text-nowrap">제출</button>
+  <div class="vr "></div>
+  <button type="button" id="verification_re" onclick="javascript:verificationRe()" class="col-2 btn btn-outline-danger text-nowrap">다시</button>
+</div>
+
+
                       <input type="password" id="password" name="pw" class="form-control" placeholder="비밀번호"/>
                       <label class="form-label" for="Password" id="passwordLabel"></label>
                       <input type="password" id="passwordCheck" class="form-control" placeholder="비밀번호 확인"/>
@@ -98,36 +111,9 @@
 </section>
 
 
-<!-- 모달창 -->
-<!-- Button trigger modal -->
-<button type="button" id="modalBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agreeModal">
-  Launch demo modal
-</button>
+<c:import url="./common_js.jsp"></c:import>
 
-<!-- Modal -->
-<div class="modal fade" id="agreeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="agreeModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="modalSubmit">Save changes</button>
-        <button type="button" class="btn btn-secondary" id="modalCancel" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+<script src="/resources/js/member/memberAgree.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-
-<script type="text/javascript" src="../resources/js/member/memberAgree.js"></script>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
