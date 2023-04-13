@@ -19,7 +19,7 @@
     <a class="nav-link" href="/member/delivery">배송지 설정</a>
   </li>
   <c:if test="${sessionMember.roleDTO.roleName eq 'ADMIN'}">
-  <li style="position:absolute; bottom:0;"><a class="nav-link" href="/member/manage">회원관리</a></li>
+  <li><a class="nav-link" href="/member/manage">회원관리</a></li>
   </c:if>
 
 </ul>
