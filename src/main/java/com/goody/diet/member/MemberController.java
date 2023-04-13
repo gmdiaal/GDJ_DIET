@@ -63,19 +63,19 @@ public class MemberController {
 	@PostMapping("delete")
 	public ModelAndView setMemberDelete(ModelAndView mv, HttpSession session, MemberDTO memberDTO) throws Exception {
 		System.out.println("-------------회원탈퇴------------");
+		System.out.println(memberDTO);
+		System.out.println(memberDTO.getId());
 		int delResult=0;
-		if(memberDTO.getId().equals(null)||memberDTO.getId().equals("")) {	//회원탈퇴
+		if(memberDTO.getId()==null||memberDTO.getId().equals("")) {	//회원탈퇴 //memberDTO.getId().equals(null)||memberDTO.getId().equals("")
 			memberDTO=(MemberDTO)session.getAttribute("sessionMember");	
 			delResult=memberService.setMemberDelete(memberDTO);
 			session.invalidate();
 		}else {					//ADMIN이 회원삭제
 			//주소삭제
-			memberService.setDeleteOnMemberDelete(memberDTO); //주문-카트삭제 카트삭제 주문삭제
 			delResult=memberService.setMemberDelete(memberDTO);
 					
 		}
-		//주소삭제
-		memberService.setDeleteOnMemberDelete(memberDTO); //주문-카트삭제 카트삭제 주문삭제
+		memberService.setDeleteOnMemberDelete(memberDTO); //주문-카트삭제, 카트삭제, 주문삭제, 주소삭제
 
 
 		
