@@ -2,22 +2,21 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-<!-- orderController getOrderList ViewName -->
 <!-- oder반복 -->
 					<c:forEach items="${orderDTOs}" var="orderDTO">
 					
 <!-- 상품반복 -->	
-        <div class="card card-1 d-flex  justify-content-center " style="margin-left:37%; margin-top:-180px">
+        <div class="card card-1 mb-3 d-flex  justify-content-center">
 
             <div class="card-body">
             
                 <div class="row justify-content-between mb-3">
-                    <div class="col-auto"> </div>
+                    <div class="col-auto"> <h6 class="color-1 mb-0 change-color"></h6> </div>
+<!--                     <div class="col-auto  "> <small>Receipt Voucher : 1KAU9-84UIL</small> </div> -->
                 </div>
 							
 <!-- 스터디 반복 -->
-<c:forEach items="${orderDTO.cartDTOs}" var="cartDTO" >
+<c:forEach items="${orderDTO.cartDTOs}" var="cartDTO">
 
 <c:if test="${cartDTO.studyNum ne null}">
 
@@ -28,14 +27,15 @@
                                 <div class="media">
                                     <div class="sq align-self-center "> <img onclick="javascript:location.href='/study/studyDetail?studyNum=${cartDTO.studyNum}'" class="img-fluid  my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" 
                                     	src="/resources/upload/study/${cartDTO.studyDTOs[0].studyBoardFileDTOs[0].fileName}" width="135" height="135" /> </div>
-                                    <div class="media-body my-auto text-left">
-                                    <p>상품명</p>
+                                    <div class="media-body my-auto text-right">
                                         <div class="row  my-auto flex-column flex-md-row">
                                             <div class="col my-auto"> <h6 class="mb-0 text-start"> ${cartDTO.studyDTOs[0].studyName}</h6>  </div>
-
+<!--                                             <div class="col-auto my-auto"> <small></small></div> -->
+<!--                                             <div class="col my-auto"> <small></small></div> -->
+<!--                                             <div class="col my-auto"> <small></small></div> -->
                                             <div class="col my-auto"><h6 class="mb-0">${cartDTO.studyDTOs[0].studyCost}원</h6>
                                             </div>
-                                            <div class="col-2 my-3 salePrice" data-salePrice="${cartDTO.studyDTOs[0].studyCost}"></div>
+                                            <div class="col-2 my-3"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -72,17 +72,16 @@
                                     <div class="sq align-self-center "> <img 
                                     onclick="javascript:location.href='/study/studyDetail?studyNum=${cartDTO.realMachineNum}'" class="img-fluid  my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" 
                                     src="/resources/images/${cartDTO.healthMachineDTO.healthMachineImgDTOs[0].fileName}" width="135" height="135" /> </div>
-                                    <div class="media-body my-auto text-left">
-                                    <p>상품명</p>
+                                    <div class="media-body my-auto text-right">
                                         <div class="row  my-auto flex-column flex-md-row">
                                             <div class="col my-auto"> <h6 class="text-start"> ${cartDTO.healthMachineDTO.machineName}</h6>  </div>
                                             <div class="col-auto my-auto"> <h6>${cartDTO.realHealthMachineDTO.optName1} </h6></div>
                                             <c:if test="${cartDTO.realHealthMachineDTO.optName2 ne null}"><div class="col my-auto"> <h6>size:${cartDTO.realHealthMachineDTO.optName2}</h6></div></c:if>
                                             <c:if test="${cartDTO.realHealthMachineDTO.optName3 ne null}"><div class="col my-auto"> <h6>무게:${cartDTO.realHealthMachineDTO.optName3}</h6></div></c:if>
                                             <div class="col my-auto"> <h6>${cartDTO.count}개</h6></div>
-                                            <div class="col my-auto"><h6 class="">${cartDTO.healthMachineDTO.price}원</h6>
+                                            <div class="col my-auto"><h6 class="">${cartDTO.healthMachineDTO.salePrice}원</h6>
                                             </div>
-                                            <div class="col-2 my-3 salePrice" data-salePrice="${cartDTO.healthMachineDTO.salePrice}"></div>
+                                            <div class="col-2 my-3"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -120,11 +119,7 @@
                         <div class="row justify-content-between">
                             <div class="col-auto"><p class="mb-1 text-dark"><b>Order Details</b></p></div>
                             <div class="flex-sm-col text-right col"> <p class="mb-1"><b>total price</b></p> </div>
-                            <div class="flex-sm-col col-auto totalPrice" data-totalPrice="${orderDTO.price}"> <p class="mb-1">${orderDTO.price}원</p> </div>
-                        </div>
-                        <div class="row justify-content-between">
-                            <div class="flex-sm-col text-right col"><p class="mb-1"> <b>Discount</b></p> </div>
-                            <div class="flex-sm-col col-auto"><p class="mb-1 discount"></p></div>
+                            <div class="flex-sm-col col-auto"> <p class="mb-1">${orderDTO.price}원</p> </div>
                         </div>
                         <div class="row justify-content-between">
                             <div class="flex-sm-col text-right col"><p class="mb-1"> <b>.</b></p> </div>
@@ -149,4 +144,3 @@
 
 
 					</c:forEach><!-- oder반복 -->
-

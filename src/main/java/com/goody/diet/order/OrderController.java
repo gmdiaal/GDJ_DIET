@@ -51,12 +51,12 @@ public class OrderController {
 
 		}
 		
-		mv.setViewName("/order/detailAjax");
+		mv.setViewName("/order/detailAjax2_back"); //detailAjax detailAjax2_back
 		return mv;
 	}
 	@GetMapping("list")
 	public ModelAndView getOrderList(ModelAndView mv) throws Exception {
-		mv.setViewName("/order/orderListPage"); //orderListPage2_back
+		mv.setViewName("/order/orderListPage2_back"); //  orderListPage2_back /order/orderListPage
 		return mv;
 	}
 
