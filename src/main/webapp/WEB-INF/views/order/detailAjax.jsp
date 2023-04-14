@@ -6,7 +6,7 @@
 					<c:forEach items="${orderDTOs}" var="orderDTO">
 					
 <!-- 상품반복 -->	
-        <div class="card card-1 d-flex  justify-content-center " style="margin-left:37%; margin-top:-180px">
+        <div class="card card-1 d-flex  justify-content-center " style="margin-left:37%; margin-top:-180px; padding-bottom:150px;">
 
             <div class="card-body">
             

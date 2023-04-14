@@ -9,6 +9,19 @@
 <c:import url="../template/common_css.jsp"></c:import>
 <c:import url="../template/header.jsp"></c:import>
  <link href="../resources/css/mlist.css" rel="stylesheet" type="text/css" />
+<style>
+
+
+.str1{
+color:tomato;
+position:absolute;
+margin-top:0;
+text-align:right;
+}
+
+
+</style>
+
 
 </head>
 
@@ -62,12 +75,39 @@
 							style="background-image: url(/resources/images/${dto.healthMachineImgDTOs[0].fileName});"></a>
 						<div class="text w-70 text-left">
 							<p></p>
+							<div class="row">
 							<h5>
 								<a href="./detail?machineNum=${dto.machineNum}">${dto.machineName}</a>
 							</h5>
+							<strong class="str1">
+							<c:choose>
+								<c:when test="${dto.machineScore lt 0.5}">
+									<td class="td1">☆☆☆☆☆</td>
+								</c:when>
+								<c:when test="${dto.machineScore lt 1.5}">
+									<td class="td1">★☆☆☆☆</td>
+								</c:when>
+								<c:when test="${dto.machineScore lt 2.5}">
+									<td class="td1">★★☆☆☆</td>
+								</c:when>
+								<c:when test="${dto.machineScore lt 3.5}">
+									<td class="td1">★★★☆☆</td>
+								</c:when>
+								<c:when test="${dto.machineScore lt 4.5}">
+									<td class="td1">★★★★☆</td>
+								</c:when>
+								 <c:when test="${dto.machineScore lt 5.5}">
+									<td class="td1">★★★★★</td>
+								</c:when>
+								<c:otherwise>
+								        <td> </td>
+								    </c:otherwise> 
+						</c:choose>
+						</strong>
+						</div>
 							<div class="priceBox">
 							<span class="sale-price">${dto.salePrice}원</span> 
-							<span class="mscore">${dto.machineScore}</span>
+							
 							<span class="ori-price" id="price">
 							<strike style="color:tomato; margin-left:10px;">${dto.price}원</strike>
 							</span>

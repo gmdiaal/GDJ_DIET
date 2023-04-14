@@ -8,7 +8,11 @@
 <title>온라인 스터디 수정</title>
 <c:import url="../template/common_css.jsp"></c:import>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.btn {
+font-family: "IBM Plex Sans KR";}
 
+</style>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -60,7 +64,7 @@
 				</div>
 				<div class="mb-3 my-5">
 					<button class="btn btn-outline-primary" id="submitbtn"
-						type="button">글쓰기</button>
+						type="button">등록하기</button>
 				</div>
 
 		</form>

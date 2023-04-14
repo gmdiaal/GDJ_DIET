@@ -11,7 +11,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
  <title>이달의 루틴</title>
  <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ko.min.js" integrity="sha512-L4qpL1ZotXZLLe8Oo0ZyHrj/SweV7CieswUODAAPN/tnqN3PA1P+4qPu5vIryNor6HQ5o22NujIcAZIfyVXwbQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
  <c:import url="../template/common_css.jsp"></c:import>
  <c:import url="../template/header.jsp"></c:import>
  </head>
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!-- <script src="/resources/js/video.js"></script> -->
  <script src="/resources/js/routineAdd.js"></script>
- <script src="/resources/js/update.js"></script>
+ <!-- <script src="/resources/js/update.js"></script> -->
 <c:import url="../template/footer.jsp"></c:import>
 <c:import url="../template/common_js.jsp"></c:import> 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
