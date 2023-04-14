@@ -8,13 +8,20 @@
 	
 	<!-- Connection 객체 생성-->
 	<!-- 부모 SqlSession로 주입해야함 -->
+<!-- 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource"> -->
+<!-- 		<property name="username" value="USER01"></property> -->
+<!-- 		<property name="password" value="USER01"></property> -->
+<!--  		<property name="url" value="jdbc:oracle:thin:@192.168.1.30:1521/xe"></property> -->
+<!-- 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property> -->
+<!-- 	</bean> -->
+
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
 		<property name="username" value="user01"></property>
 		<property name="password" value="user01"></property>
- <!--	<property name="url" value="jdbc:oracle:thin:@192.168.1.30:1521/xe"></property> -->
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521/xe"></property>
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
 	</bean>
+
 	
 	<!-- dataSource이름으로 만든 객체(Connection)와 OOOOMapper.xml, config.xml 연결 객체 -->
 	<!-- Mapper는 여러 파일이 존재 (ex> ProductMapper.xml, MemberMapper.xml 등)하므로 복수형 s를 붙임 , OOOOMapper.xml 이므로 *로 대체-->
