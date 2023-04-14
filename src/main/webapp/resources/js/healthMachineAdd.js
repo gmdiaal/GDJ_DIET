@@ -121,7 +121,7 @@ $(".dropdown").on("focus",".optInput",function(){
 })
 
 $(".dropdown").on("click", ".dropdown-item", function () {
-    let $this = $(this).parents(".dropdown");
+    let $this = $(this).parents(".boxx");
     $this.find(".optInput").val($(this).attr("data-name"))
     $this.find(".optInputId").val($(this).attr("data-id"))
     let parent = $(this).parents("#optionSelect")

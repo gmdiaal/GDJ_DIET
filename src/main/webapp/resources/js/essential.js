@@ -110,24 +110,25 @@ $('.essbox').on('click', '#submitbtn', function () {
     if (nullCheck != true) {
         if ($(".note-editable").children().children().prop("tagName") == "BR") {
             swal('상세내용 공백', '상세내용을 입력해 주세요.', 'error');
-
+            nullCheck=true
+            return false;
         }
     }
 //스터디 날짜부분
 
-    if (nullCheck != true) {
-        if(document.getElementById("studyStartPeriod")){
-            const startDate = new Date(studyStartPeriod.value);
-            const endDate = new Date(studyEndPeriod.value);
+    // if (nullCheck != true) {
+    //     if(document.getElementById("studyStartPeriod")){
+    //         const startDate = new Date(studyStartPeriod.value);
+    //         const endDate = new Date(studyEndPeriod.value);
     
-            if (startDate > endDate) {
-                swal('날짜선택 오류', '올바른 날짜를 선택해주세요.', 'error');
-                nullCheck = true;
-                return false;
-            }
-        }
+    //         if (startDate > endDate) {
+    //             swal('날짜선택 오류', '올바른 날짜를 선택해주세요.', 'error');
+    //             nullCheck = true;
+    //             return false;
+    //         }
+    //     }
         
-    }
+    // }
 
     if (nullCheck != true) {
         $("#frm").submit();

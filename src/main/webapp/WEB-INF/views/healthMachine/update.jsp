@@ -96,6 +96,7 @@ font-family: 'IBM Plex Sans KR', sans-serif;
 
 <body>
 	<div class="container-fluid">
+	<div class="essbox">
 		<div class="row mb-4 mt-4 md-7">
 			<h1 class="col-md-5 mx-auto text-center pb-3">제품 수정</h1>
 		</div>
@@ -128,20 +129,20 @@ font-family: 'IBM Plex Sans KR', sans-serif;
 				<div class="first">
 				<div class="mb-3">
 					<label for="machineName" class="form-label">제품명</label> <input
-						type="text" class="form-control" name="machineName"
+						type="text" class="form-control essential" name="machineName"
 						value="${dto.machineName }">
 				</div>
 				</div>
 				<div class="second">
 				<div class="mb-3">
 					<label for="price" class="form-label">가격</label> <input type="text"
-						class="form-control" name="price" value="${dto.price }">
+						class="form-control essential" name="price" value="${dto.price }">
 				</div>
 				</div>
 				<div class="third">
 				<div class="mb-3">
 					<label for="salePrice" class="form-label">할인가격</label> <input
-						type="text" class="form-control" name="salePrice"
+						type="text" class="form-control essential" name="salePrice"
 						value="${dto.salePrice }">
 				</div>
 				</div>
@@ -152,14 +153,14 @@ font-family: 'IBM Plex Sans KR', sans-serif;
 				<div id="optionList" class="boxone">
 					<div class="mb-3" id=option1>
 						<label for="option1" class="form-label options">옵션1 이름</label> 
-						<input type="text" class="form-control" name="option1" value="${dto.option1 }">
+						<input type="text" class="form-control essential" name="option1" value="${dto.option1 }">
 					</div>
 					</div>
 					<c:if test="${not empty dto.option2 }">
 					<div class="boxtwo">	
 						<div class="mb-3" id=option2>
 							<label for="option2" class="form-label options">옵션2 이름</label> 
-							<input type="text" class="form-control" name="option2" value="${dto.option2 }">
+							<input type="text" class="form-control essential" name="option2" value="${dto.option2 }">
 							</div>
 						</div>
 					</c:if>
@@ -167,7 +168,7 @@ font-family: 'IBM Plex Sans KR', sans-serif;
 					<div class="boxthree">
 						<div class="mb-3" id=option3>
 							<label for="option3" class="form-label options">옵션3 이름</label> 
-							<input type="text" class="form-control" name="option3" value="${dto.option3 }">
+							<input type="text" class="form-control essential" name="option3" value="${dto.option3 }">
 							</div>
 						</div>
 					</c:if>
@@ -175,7 +176,7 @@ font-family: 'IBM Plex Sans KR', sans-serif;
 					<div class="boxfour">
 						<div class="mb-3" id=option4>
 							<label for="option4" class="form-label options">옵션4 이름</label> 
-							<input type="text" class="form-control" name="option4" value="${dto.option4 }">
+							<input type="text" class="form-control essential" name="option4" value="${dto.option4 }">
 							</div>
 						</div>
 					</c:if>
@@ -242,10 +243,10 @@ font-family: 'IBM Plex Sans KR', sans-serif;
 				<div class="dropdown" id="opt4" data-optName="${dto.option4 }"></div>
 			</div>
 		</div>
-	
+	</div>
 	<c:import url="../template/common_js.jsp"></c:import>
 	<script src="/resources/js/healthMachineUpdate.js"></script>
-	
+	<script src="/resources/js/essential.js"></script>
 	<script>
 		
 		setParam('Files');

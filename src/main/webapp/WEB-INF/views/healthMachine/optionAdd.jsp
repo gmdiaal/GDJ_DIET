@@ -74,17 +74,17 @@ body {
 											<input type="text"
 												class="form-control optInput text-center essential"
 												name="optName1" placeholder="${dto.option1}작성">
+											<div class="dropdown-menu">
+												<ul style="list-style: none" id="optSelect1">
+													<c:forEach items="${optList1}" var="option">
+														<li class="dropdown-item cursor-pointer" id="op1"
+															data-id="${option.optId1}" data-name="${option.optName1}">${option.optName1}</li>
+													</c:forEach>
+												</ul>
+											</div>
 										</div>
 									</div>
 									<div class="second">
-										<div class="dropdown-menu">
-											<ul style="list-style: none" id="optSelect1">
-												<c:forEach items="${optList1}" var="option">
-													<li class="dropdown-item cursor-pointer" id="op1"
-														data-id="${option.optId1}" data-name="${option.optName1}">${option.optName1}</li>
-												</c:forEach>
-											</ul>
-										</div>
 										<input type="text"
 											class="form-control optInputId text-center essential"
 											name="optId1" placeholder="영문명">
@@ -103,17 +103,19 @@ body {
 												<input type="text"
 													class="form-control optInput text-center essential"
 													name="optName2" placeholder="${dto.option2}작성">
+												<div class="dropdown-menu">
+													<ul style="list-style: none" id="optSelect2">
+														<c:forEach items="${optList2}" var="option">
+															<li class="dropdown-item cursor-pointer" id="op2"
+																data-id="${option.optId2}"
+																data-name="${option.optName2}">${option.optName2}</li>
+														</c:forEach>
+													</ul>
+												</div>
 											</div>
 										</div>
 										<div class="second">
-											<div class="dropdown-menu">
-												<ul style="list-style: none" id="optSelect2">
-													<c:forEach items="${optList2}" var="option">
-														<li class="dropdown-item cursor-pointer" id="op2"
-															data-id="${option.optId2}" data-name="${option.optName2}">${option.optName2}</li>
-													</c:forEach>
-												</ul>
-											</div>
+
 											<input type="text"
 												class="form-control optInputId text-center essential"
 												name="optId2" placeholder="영문명">
@@ -132,17 +134,19 @@ body {
 												<input type="text"
 													class="form-control optInput text-center essential"
 													name="optName3" placeholder="${dto.option3}작성">
+												<div class="dropdown-menu">
+													<ul style="list-style: none" id="optSelect3">
+														<c:forEach items="${optList3}" var="option">
+															<li class="dropdown-item cursor-pointer" id="op3"
+																data-id="${option.optId3}"
+																data-name="${option.optName3}">${option.optName3}</li>
+														</c:forEach>
+													</ul>
+												</div>
 											</div>
 										</div>
 										<div class="second">
-											<div class="dropdown-menu">
-												<ul style="list-style: none" id="optSelect3">
-													<c:forEach items="${optList3}" var="option">
-														<li class="dropdown-item cursor-pointer" id="op3"
-															data-id="${option.optId3}" data-name="${option.optName3}">${option.optName3}</li>
-													</c:forEach>
-												</ul>
-											</div>
+
 											<input type="text" class="form-control optInputId essential"
 												name="optId3" placeholder="영문명">
 										</div>
@@ -159,17 +163,18 @@ body {
 												data-optName="${dto.option4 }">
 												<input type="text" class="form-control optInput essential"
 													name="optName4" placeholder="${dto.option4}작성">
+												<div class="dropdown-menu">
+													<ul style="list-style: none" id="optSelect4">
+														<c:forEach items="${optList4}" var="option">
+															<li class="dropdown-item cursor-pointer" id="op4"
+																data-id="${option.optId4}"
+																data-name="${option.optName4}">${option.optName4}</li>
+														</c:forEach>
+													</ul>
+												</div>
 											</div>
 										</div>
 										<div class="second">
-											<div class="dropdown-menu">
-												<ul style="list-style: none" id="optSelect4">
-													<c:forEach items="${optList4}" var="option">
-														<li class="dropdown-item cursor-pointer" id="op4"
-															data-id="${option.optId4}" data-name="${option.optName4}">${option.optName4}</li>
-													</c:forEach>
-												</ul>
-											</div>
 											<input type="text" class="form-control optInputId essential"
 												name="optId4" placeholder="영문명">
 										</div>

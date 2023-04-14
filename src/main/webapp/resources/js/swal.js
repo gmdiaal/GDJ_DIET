@@ -6,7 +6,6 @@ let result=$("#data").attr("data-result");
 	if(result != ''){
 		if(resultNum*1>0){
 			swal(result," ",'success');		
-
 		}
 		else{
 			swal(result," ",'error');		

@@ -125,7 +125,7 @@ $("#optionAdd").click(function (e) {
     optioncount++;
     let child = '<div class="mb-3" id="option' + optioncount + '"'
     child = child + '<label for="option' + optioncount + '" class="form-label">'
-    child = child + '<input type = "text" class="form-control" name="option' + optioncount + '">'
+    child = child + '<input type = "text" class="form-control essential"  name="option' + optioncount + '">'
     child = child + "</div>";
     $("#optionList").append(child);
 
@@ -189,7 +189,7 @@ $("#thumnailbtn").click(() => {
     
     if (thumnailcount < 1) {
         let child = '<div class="input-group mb-3"">';
-        child = child + '<input type="file" class="form-control" name="Files">'
+        child = child + '<input type="file" class="form-control " name="Files">'
         child = child + '<button type="button" class="btn btn-outline-danger dels" id="thumnaildel">X</button>'
         child = child + '</div>';
         $("#thumnailFile").append(child);

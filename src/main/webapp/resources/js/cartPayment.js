@@ -85,7 +85,7 @@ $("#submitbtn").click(function () {
 		}
 	})
 	if(i==0){
-		alert("상품을 선택해주세요")
+		swal('하나이상 선택해야합니다.',' ', 'error')
 		return;
 	}
 	//countUpdate

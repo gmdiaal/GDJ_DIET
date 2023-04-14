@@ -157,7 +157,7 @@ $("#contentsConfirm").click(function(){
             $("#closeModal").click();
             location.href='/study/studyDetail?studyNum='+studyReviewList.getAttribute('data-review-studyNum');           
         }else {
-            swal('글쓰기 실패', '실패', 'fail');
+            swal('글쓰기 실패', '실패', 'error');
         }
       })
        .catch(()=>{

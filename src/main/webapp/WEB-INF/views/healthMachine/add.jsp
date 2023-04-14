@@ -50,7 +50,7 @@ body {
 							placeholder="필수입력창 입니다." required>
 					</div>
 					<div class="mb-3">
-						<label for="salePrice" class="form-label" style="color: tomato;">할인가격</label><br>
+						<label for="salePrice" class="form-label">할인가격</label><br>
 						<input type="text" class="form-control essential" id="red-point"
 							name="salePrice">
 					</div>

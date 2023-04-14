@@ -31,7 +31,7 @@ $("#contentsConfirm").click(function(){
             $("#closeModal").click();
             location.href='/machineReview/detail?machineNum='+$(this).attr("data-comment-num")+"&num="+$("#num").val();        
         }else { 
-            swal('글쓰기 실패', '실패', 'fail');
+            swal('글쓰기 실패', '실패', 'error');
         }
       })
        .catch(()=>{
