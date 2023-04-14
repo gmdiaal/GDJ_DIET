@@ -73,7 +73,7 @@ function kakaoLogout() {
         location.href="/member/logout"
         // return;
     }else{
-        location.href="https://kauth.kakao.com/oauth/logout?client_id=4dbfcfd2f5a649a659ccd93aa0364e69&logout_redirect_uri=http://172.30.1.36/member/logout";
+        location.href="https://kauth.kakao.com/oauth/logout?client_id=4dbfcfd2f5a649a659ccd93aa0364e69&logout_redirect_uri=http://localhost/member/logout";
         
         //카카오계정 유지
         // Kakao.Auth.logout(function() {

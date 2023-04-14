@@ -142,7 +142,9 @@ body {
   <li class="nav-item">
     <a class="nav-link" href="/member/delivery">배송지 설정</a>
   </li>
-
+  <c:if test="${sessionMember.roleDTO.roleName eq 'ADMIN'}">
+  <li><a class="nav-link" href="/member/manage">회원관리</a></li>
+  </c:if>
 </ul>
 </div>
 
