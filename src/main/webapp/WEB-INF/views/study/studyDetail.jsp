@@ -86,7 +86,7 @@ font-family: "IBM Plex Sans KR";
 					</c:forEach>
 					<c:if test="${sessionMember.roleDTO.roleName eq 'ADMIN'}"> 
 						<button id="update" type="submit" class="btn btn-primary">스터디 수정하기</button>
-						<button id="delete" type="button" class="btn btn-primary">스터디 삭제하기</button>
+						<button id="delete" type="button" class="btn btn-danger">스터디 삭제하기</button>
 					</c:if>
 				</form>
                 </div>

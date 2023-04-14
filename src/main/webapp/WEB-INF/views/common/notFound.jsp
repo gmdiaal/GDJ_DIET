@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,8 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="./style.css">
-
+<link rel="stylesheet" href="../resources/css/style.css">
   <style>
  img { display : block;
        margin:auto;}
@@ -22,7 +20,7 @@
            <a class="navbar-brand w-100 mt-3 text-center" style="font-size:25px" href="/"> 잘못된 접근 </a>
             <div class="underline"></div>
 			<div id="img" style="cursor: pointer;">
-				<img alt="..." src="../images/alert.png">
+				<img alt="..." src="/resources/images/alert.png">
 				
 				<div class="text-center justify-content-center">
                     <div>
@@ -36,11 +34,11 @@
                 </div>
                 <div class="underline"></div>
                 <div class="row col-4 my-2">
-				    <a href="#" onclick="goBack()">돌아가기</a>
+				    <a href="/" onclick="goBack()">돌아가기</a>
 				</div>
 
 				</div>
-		<!-- </form> -->
+		<!--  </form> -->
 		</div>
 	</div>
 	

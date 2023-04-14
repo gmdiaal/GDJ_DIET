@@ -46,6 +46,7 @@
 	  		<result column="studyStartPeriod" property="studyStartPeriod"/>
 	  		<result column="studyEndPeriod" property="studyEndPeriod"/>
 	  		<result column="studyStock" property="studyStock"/>
+	  		<result column="studyScore" property="studyScore"/>
 		<collection property="studyBoardFileDTOs" javaType="List" ofType="StudyBoardFileDTO">
 			<id column="fileNum" property="fileNum"/>
 				<result column="fileName" property="fileName"/>

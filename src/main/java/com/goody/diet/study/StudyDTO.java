@@ -11,6 +11,7 @@ public class StudyDTO {
 	private Date studyStartPeriod;
 	private Date studyEndPeriod;
 	private Long studyStock;
+	private Double studyScore;
 	
 	private List<StudyBoardFileDTO> studyBoardFileDTOs;
 	private List<StudyReviewDTO> studyReviewDTOs;
@@ -64,6 +65,14 @@ public class StudyDTO {
 	public void setStudyReviewDTOs(List<StudyReviewDTO> studyReviewDTOs) {
 		this.studyReviewDTOs = studyReviewDTOs;
 	}
+	public Double getStudyScore() {
+		return studyScore;
+	}
+	public void setStudyScore(Double studyScore) {
+		this.studyScore = studyScore;
+	}
+	
+	
 	
 
 }
