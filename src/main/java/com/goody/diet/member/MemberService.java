@@ -23,18 +23,24 @@ public class MemberService {
 	}
 	
 	public MemberDTO getKakaoLogin (MemberDTO memberDTO) throws Exception {
-		System.out.println("서비스카카오로긴1");
-		MemberDTO result = memberDAO.getMemberLogin(memberDTO);
-		System.out.println("서비스카카오로긴2");
+		System.out.println("-------------서비스.카카오로그인--------------");
+		//토큰이 초기화되지 않은경우->
+		System.out.println(memberDTO.getId());
+		MemberDTO result = memberDAO.getMemberLogin(memberDTO); //카카오에서 연결 끊거나, accessToken이 남아있어도 DB에서 초기화
+		System.out.println(result); //db에 없으면 머가남음?
+		System.out.println("ID: "+memberDTO.getId());
 		System.out.println("로그인타입: "+memberDTO.getLoginType());
-		//정보가 없으면 회원가입
-		if(result==null) {
+		//정보가 없으면 회원가입 //?브라우저에 토큰이 살아있어서 id를 받아오면?->ID가 없어서 못받음
+		if(result==null) { //가입이 안되있어도 토큰에서 id받아오네? //로컬스토리지에 memberSession때문.
+			//카카오에서 서비스를 끊으면, 서비스에선 어떻게알음?-> 카카오계정과연동창이 뜨고 서비스와 연동.-> 1. 세션이 없을경우. db가입진행 2. 세션이 있을 경우 ->검증을 못함.
+			//loginType으로 검증하면 회원가입 중복되네..
 			memberDTO.setLoginType("kakao"); //회원가입 시 kakao로그인 부여
 			memberDAO.setKakaoJoin(memberDTO);
 			memberDAO.setMemberRole(memberDTO);
+			memberDAO.getMemberLogin(memberDTO);//역할 받아와야함.
 		}
 		memberDTO=memberDAO.getMemberLogin(memberDTO);
-		System.out.println("로그인타입: "+memberDTO.getLoginType());
+		System.out.println("로그인타입: "+memberDTO.getLoginType()+" 역할: "+memberDTO.getRoleDTO().getRoleName());
 		System.out.println("------------카카오로그인-------------");
 		return memberDTO;
 	}

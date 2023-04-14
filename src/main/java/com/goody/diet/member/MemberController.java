@@ -1,5 +1,12 @@
 package com.goody.diet.member;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.goody.diet.util.Pager;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
 @Controller
 @RequestMapping("/member/*")
@@ -21,6 +30,67 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@PostMapping("adminDel")
+	public ModelAndView adminDelete(ModelAndView mv, MemberDTO memberDTO) throws Exception {
+		System.out.println("---------------카카오연결끊기 admin------------------");
+
+		String reqURL = "https://kapi.kakao.com/v1/user/unlink";
+		String deletedIdLong = "";
+		 try {
+	            URL url = new URL(reqURL);
+	            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	            
+	            //    POST 요청을 위해 기본값이 false인 setDoOutput을 true로
+	            conn.setRequestMethod("POST");
+	            conn.setDoOutput(true);
+	            
+	            //	헤더
+	            conn.setRequestProperty("Authorization", "KakaoAK cffbbf5524ffcc3a7dc95c63c0952914");
+	            
+	            //    POST 요청에 필요로 요구하는 파라미터 스트림을 통해 전송
+	            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
+	            StringBuilder sb = new StringBuilder();
+	            sb.append("target_id_type=user_id");
+	            sb.append("&target_id="+Long.parseLong(memberDTO.getId()));
+	            bw.write(sb.toString());
+	            bw.flush();
+	            
+	            //    결과 코드가 200이라면 성공
+	            int responseCode = conn.getResponseCode();
+	            System.out.println("responseCode : " + responseCode);
+	 
+	            //    요청을 통해 얻은 JSON타입의 Response 메세지 읽어오기
+	            System.out.println(conn.getInputStream());
+	            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	            String line = "";
+	            String result = "";
+	            
+	            while ((line = br.readLine()) != null) {
+	                result += line;
+	            }
+	            System.out.println("response body : " + result);
+	            
+	            //    Gson 라이브러리에 포함된 클래스로 JSON파싱 객체 생성
+	            JsonParser parser = new JsonParser();
+	            JsonElement element = parser.parse(result);
+	            
+	            deletedIdLong = element.getAsJsonObject().get("id").getAsString();
+	            
+	            System.out.println("연결 끊기에 성공한 사용자의 회원번호 : " + deletedIdLong);
+	            
+	            br.close();
+	            bw.close();
+	        } catch (IOException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+	        } 
+		 
+			mv.addObject("result", deletedIdLong);
+			mv.setViewName("/member/ajaxResult");
+		
+		return mv;
+	}
 
 	@GetMapping("manage")
 	public ModelAndView getMemberList(Pager pager, HttpSession session, ModelAndView mv) throws Exception {
@@ -68,14 +138,15 @@ public class MemberController {
 		int delResult=0;
 		if(memberDTO.getId()==null||memberDTO.getId().equals("")) {	//회원탈퇴 //memberDTO.getId().equals(null)||memberDTO.getId().equals("")
 			memberDTO=(MemberDTO)session.getAttribute("sessionMember");	
+			memberService.setDeleteOnMemberDelete(memberDTO); //주문-카트삭제, 카트삭제, 주문삭제, 주소삭제 (FK)
 			delResult=memberService.setMemberDelete(memberDTO);
 			session.invalidate();
 		}else {					//ADMIN이 회원삭제
-			//주소삭제
+			memberService.setDeleteOnMemberDelete(memberDTO); //주문-카트삭제, 카트삭제, 주문삭제, 주소삭제 (FK)
 			delResult=memberService.setMemberDelete(memberDTO);
 					
 		}
-		memberService.setDeleteOnMemberDelete(memberDTO); //주문-카트삭제, 카트삭제, 주문삭제, 주소삭제
+		
 
 
 		

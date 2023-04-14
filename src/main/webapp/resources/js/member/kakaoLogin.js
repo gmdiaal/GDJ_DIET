@@ -26,7 +26,7 @@ function loginWithKakao() {
             Kakao.Auth.setAccessToken(authObj.access_token); // access토큰값 저장
 
             // getInfo();
-            kakaoLogin()
+            kakaoLogin() //사용자 정보 받아와서 contoller에서 가입.
 
             // location.href="/"
         },

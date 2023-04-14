@@ -33,9 +33,14 @@
                     ${dto.loginType}
 	<!-- Button trigger modal -->
 	<c:if test="${dto.loginType eq 'general'}">
-	<button type="button" class="btn btn-primary delBtn" data-bs-toggle="modal" data-del-id="${dto.id}"
-		data-bs-target="#deleteModal">회원탈퇴</button>	
+	<button type="button" class="btn btn-primary delBtn" data-del-id="${dto.id}" data-del-lginType="${dto.loginType}"
+		>회원탈퇴</button>	
 	</c:if>
+	<c:if test="${dto.loginType ne 'general'}">
+	<button type="button" class="btn btn-secondary delBtn" data-del-id="${dto.id}" data-del-lginType="${dto.loginType}"
+		>회원탈퇴</button>	
+	</c:if>	
+	
                     </td>
                 </tr>
             </c:forEach>

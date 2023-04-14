@@ -128,14 +128,6 @@ body {
   <li class="nav-item">
     <a class="nav-link active mt-1" aria-current="page" href="/order/list">주문/배송</a>
   </li>
-  <li class="nav-item">
-  <c:if test="${sessionMember.studyNum eq null}">
-  	<a class="nav-link" href="/study/studyList">수업111</a>
-  </c:if>
-    <c:if test="${sessionMember.studyNum ne null}">
-  	<a class="nav-link" href="/member/myPage">수업222</a>
-  </c:if>
-  </li>
    <li class="nav-item">
     <a class="nav-link" href="/member/update">개인정보</a>
   </li> 
