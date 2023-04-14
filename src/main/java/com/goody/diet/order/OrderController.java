@@ -56,7 +56,7 @@ public class OrderController {
 	}
 	@GetMapping("list")
 	public ModelAndView getOrderList(ModelAndView mv) throws Exception {
-		mv.setViewName("/order/orderListPage2_back"); //  orderListPage2_back /order/orderListPage
+		mv.setViewName("/order/orderListPage2_back"); //  orderListPage2_back orderListPage
 		return mv;
 	}
 
